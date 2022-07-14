@@ -1,4 +1,4 @@
-Pracrice excercise for C, only in static memory for Algorythm 1 FIUBA
+Practice excercise for C, only in static memory for Algorythm 1 FIUBA
 Themes:
 - Pointers
 - Functions
