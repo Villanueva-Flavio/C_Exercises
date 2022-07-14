@@ -1,0 +1,31 @@
+/*
+Encuentra ordenado por zona descendentemente, luego por fecha ascendentemente, y finalmente por hueso alfabéticamente. Ahora que ya está tranquilo en su casa, antes de enterrarlos, quiere clasificarlos para tener un mayor control, y saber hasta cuando los puede comer sin que le caigan mal. Cómo anduvo por muchos lados, primero le gustaría clasificarlos por lugar y luego por fecha.
+Se pide
+1.Clasificar a los huesos agrupados primero por zona en dónde los encontró, y luego por fecha, como se muestra a continuación:
+ 
+ ----------------------------------------
+Palermo
+ 01/01/21
+ Hueso blanco
+ Hueso duro
+ ..
+ 05/01/21
+ Hueso caracu
+ 
+ 02/02/21
+ Hueso chico
+ Hueso de oro
+..
+---------------------------------------
+Adrogue
+ 02/02/21
+ Hueso chico
+ Hueso de oro
+ Hueso de colección
+ Hueso grande
+ ...
+ 05/04/21
+ Hueso negro
+...
+*/
+
