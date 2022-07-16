@@ -8,7 +8,7 @@ por lugar y luego por fecha. Se pide
 
 1.Clasificar a los huesos agrupados primero por zona en dónde los encontró, y luego por fecha, como se muestra a continuación:
  
- ----------------------------------------
+ ---------------------------------------
 Palermo
  01/01/21
  Hueso blanco
@@ -34,3 +34,18 @@ Adrogue
 ...
 */
 
+/*
+    Toma de notas
+        Ordenar por Zona
+        Ordenar por fecha
+*/
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#define DELIM_ZONA "---------------------------------------"
+
+
+int main(){
+    FILE *leer_archivo ("huesitos.csv", "r");
+    return 0;
+}
