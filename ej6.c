@@ -1,6 +1,34 @@
-// Poner consigna y fixear
-// Ejercicio 3 de Final 1 1C2022 Algo1 Camejo
+/* 
+  Ejercicio 3 de Final 1 1C2022 Algo1 Camejo
 
+  NO ARREGLADO
+  
+	Anita y Rogers e mudaron al interior y consiguieron una hermosa casa con un parque
+	enorrrrrme donde los 101 dálmatas pueden ser felices y correr en libertad
+
+	Se tiene un archivo de coordenadas llamado coordenadas.csv donde está cada una de las posiciones de los dálmatas en el parque.
+
+	Se pide
+		1. Generar un archivo distancias.txt que contenga la información de los 2 dálmatas que
+		   están mas cerca entre ellos y de los 2 dálmatas que esten más alejados
+	
+	Ejemplo
+		Aclaracion: las coordenadas pueden ser números con coma.
+	
+	coordenadas.csv
+
+		5;8
+		6.5;15
+		2;2
+		0;0
+		45;20
+	
+	distancias.txt
+
+		Más cerca: (0;0) - (2;2)
+		Más alejados: (0;0) - (45;20)
+
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>

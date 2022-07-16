@@ -1,4 +1,37 @@
-// Ejercicio 1 de Final 1 1C2022 Algo1 Camejo
+/*
+  Ejercicio 1 de Final 1 1C2022 Algo1 Camejo
+
+  NO ARREGLADO
+  
+    Oh no! Russell y Carl tienen peso de más en la casa de Up y se estan cayendo! Te animás a
+    ayudarlos a encontrar los globos con más presión para que puedan inflarlos un poco más, y
+    puedan elevarse?
+
+    Se tiene un archivo presiones.csv donde se encuentra el color de cada globo, seguido de la presión del mismo.
+
+    Se pide
+
+    1. Obtener todos los globos que tengan la presión mínima, y escribirla en un archivo nuevo, globos_a_inflar.csv
+
+    Ejemplo
+    Recibiendo el archivo:
+
+    presiones.csv
+
+    rojo;21
+    negro;12
+    verde;20
+    rosa;12
+    violeta;17
+
+    Se obtiene:
+    globos_a_inflar.csv
+
+    negro;12
+    rosa;12
+
+    Aclaración: El ejercicio fue realizado con fines prácticos de programación, No aceptamos quejas sobre química.
+*/
 
 #include <stdlib.h>
 #include <stdio.h>

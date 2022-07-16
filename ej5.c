@@ -1,5 +1,40 @@
-// Ejercicio 2 de Final 1 1C2022 Algo1 Camejo
+/* 
+  Ejercicio 2 de Final 1 1C2022 Algo1 Camejo
 
+  NO ARREGLADO
+  
+    Por fin encontramos el tesorod espués de tanta búsqueda, finalmente vamos a abrirlo yyyy...
+    "Por favor ingrese la contraseña.". Estamos perdidos!
+    Nos dimos cuenta que atrás del mapa hay unas pistas... a ver que dice:
+        
+        Si el tesoro es lo que quieres,
+        una contraseña es lo que tienes,
+        en una matriz dentro de un archivo,
+        con un cálculo muy intensivo.
+    
+    Se tiene un archivo pistas.csv donde la primer linea nos dice la dimensión de la matriz (se sabe
+    que es cuadrada por lo que sólo será un número), seguida de una matriz de enteros:
+
+    Se pide
+        1. Obtener los datos de la matriz, y luego escribir en otro archivo contrasenia.txt, el vector
+            resultante de la resta de la diagonal principal de la matriz, con la diagonal inversa.
+
+    Ejemplo
+        pista.csv
+
+        3
+        5;8;9
+        3;6;3
+        2;1;4
+    
+    Con la matriz del ejemplo, 3 es la dimensión de la matriz, (5, 6, 4) es la diagonal principal y
+    (9, 6, 2) la diagonal inversa. El 5 debería restarse con el 9, el 6 con el 6 (ambos son el centro), y
+    el 4 con el 2, dando así, el vector resultante: (-4, 0, 2)
+
+        contrasenia.txt
+
+        (-4;0;2)
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
