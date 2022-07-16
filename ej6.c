@@ -2,7 +2,7 @@
   Ejercicio 3 de Final 1 1C2022 Algo1 Camejo
 
   NO ARREGLADO
-  
+
 	Anita y Rogers e mudaron al interior y consiguieron una hermosa casa con un parque
 	enorrrrrme donde los 101 dálmatas pueden ser felices y correr en libertad
 
@@ -82,8 +82,8 @@ void cargar_distancias(char menor_distancia[MAX_BUFFER_SALIDA], char mayor_dista
 }
 
 int main(){
-	FILE *leer_archivo = fopen("coordenadas.csv", "r");
-	FILE *escribir_archivo = fopen("distancias.txt", "w");
+	FILE *leer_archivo = fopen("archivos/coordenadas.csv", "r");
+	FILE *escribir_archivo = fopen("archivos/distancias.txt", "w");
 	char menor_distancia[MAX_BUFFER_SALIDA], mayor_distancia[MAX_BUFFER_SALIDA], file_check[MAX_BUFFER_ENTRADA];
 	if(leer_archivo != NULL){
 		fgets(file_check, MAX_BUFFER_ENTRADA, leer_archivo);

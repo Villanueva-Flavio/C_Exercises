@@ -2,7 +2,7 @@
   Ejercicio 1 de Final 1 1C2022 Algo1 Camejo
 
   NO ARREGLADO
-  
+
     Oh no! Russell y Carl tienen peso de más en la casa de Up y se estan cayendo! Te animás a
     ayudarlos a encontrar los globos con más presión para que puedan inflarlos un poco más, y
     puedan elevarse?
@@ -113,8 +113,8 @@ void anotar_globos_a_inflar(FILE *escribir_archivo, FILE *leer_archivo, int indi
 
 int main(){
     int indices[MAX_INDICES], tope = 0;
-    FILE *leer_archivo = fopen("presiones.csv", "r");
-    FILE *escribir_archivo = fopen("globos_a_inflar.csv", "w");
+    FILE *leer_archivo = fopen("archivos/presiones.csv", "r");
+    FILE *escribir_archivo = fopen("archivos/globos_a_inflar.csv", "w");
     char file_check[MAX_BUFFER];
     if(leer_archivo != NULL){
         fgets(file_check, MAX_BUFFER, leer_archivo);

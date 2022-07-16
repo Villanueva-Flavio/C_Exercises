@@ -46,7 +46,7 @@ void cargar_partida(char juego[MAX_SIZE][MAX_SIZE], FILEleer_archivo, char solic
 
 int main(){
     char juego[MAX_SIZE][MAX_SIZE];
-    FILEleer_archivo = fopen("barcos.txt", "r");
+    FILE *leer_archivo = fopen("archivos/barcos.txt", "r");
     cargar_partida(juego, leer_archivo, BARCO); //Cargo la posicion de todos los barcos
     cargar_partida(juego, leer_archivo, DISPARO); //Cargo la posicion de todos los disparos y superponen los barcos para eliminarlos
     fclose(leer_archivo);

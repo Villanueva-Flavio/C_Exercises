@@ -2,7 +2,7 @@
   Ejercicio 2 de Final 1 1C2022 Algo1 Camejo
 
   NO ARREGLADO
-  
+
     Por fin encontramos el tesorod espués de tanta búsqueda, finalmente vamos a abrirlo yyyy...
     "Por favor ingrese la contraseña.". Estamos perdidos!
     Nos dimos cuenta que atrás del mapa hay unas pistas... a ver que dice:
@@ -78,8 +78,8 @@ void guardar_contrasenia(FILE *escribir_archivo, int contrasenia[MAX_SIZE], int 
 
 int main(){
 	int tope, contrasenia[MAX_SIZE], matriz[MAX_SIZE][MAX_SIZE];
-	FILE *leer_archivo = fopen("pista.csv", "r");
-	FILE *escribir_archivo = fopen("contrasenia.txt", "w");
+	FILE *leer_archivo = fopen("archivos/pista.csv", "r");
+	FILE *escribir_archivo = fopen("archivos/contrasenia.txt", "w");
 	char file_check[MAX_BUFFER];
 	
 	if(leer_archivo != NULL){
