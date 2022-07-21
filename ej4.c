@@ -35,24 +35,31 @@
 
 #include "./archivos/utils.h"
 
+void conseguir_indices_m1(FILE* leer_archivo, int indices, int *tope_indices){
+    int presion, presiones[MAX_INDICES];
+    char color[MAX_COLORES];
+    
+    fscanf(leer_archivo, "%s;%i", color, presiones);
+    
+}
+
 /*
 * Procedimiento que consigue los indices de todos los globos a inflar y los guarda en un vector
 *
 * Process that get the index of all the balloons to fill and it saves into an array
 */
-void conseguir_indices_m2(FILE *leer_archivo, int indices, int *tope_indices){
-    char buffer_in[MAX_BUFFER], *ptr;
-    int i = 0;
-    do{
-        fgets(buffer_in, MAX_BUFFER; leer_archivo);
-        ptr = strtok(buffer_in, ";");
-        ptr = strtok(buffer_in, "\0");
-        indices[i] = atoi(ptr);
-        *tope_indices ++;
-        i++;
-    } while (strcmp(buffer_in, NULL) != 0);
-    
-    
+void conseguir_indices_m2(FILE *leer_archivo, int indices[MAX_INDICES], int *tope_indices){
+    char buffer[MAX_BUFFER], *ptr;
+    int i = 0, presion[MAX_INDICES];
+    while(!feof(leer_archivo)){
+        fgets(buffer, MAX_BUFFER, leer_archivo);
+        while(ptr != NULL){
+            ptr = strtok(buffer, ";");
+            ptr = strtok(NULL, "\n");
+            presion[i] = atoi(ptr);
+            i++;
+        }
+    }
 }
 
 /*
@@ -81,12 +88,12 @@ void guardar_indices_m2(FILE *leer_archivo, FILE *escribir_archivo, int indices[
 // OUT -> globos_a_inflar.csv
 
 int main(int argc, char *argv[]){
-    FILE *leer_archivo = fopen("presiones.csv", "r");
-    FILE *escribir_archivo = fopen("globos_a_inflar.csv", "w");
+    FILE *leer_archivo = fopen("./archivos/presiones.csv", "r");
+    FILE *escribir_archivo = fopen("./archivos/globos_a_inflar.csv", "w");
     int indices[MAX_INDICES], tope_indices;
-    if(isopen(leer_archivo)){
+    if(leer_archivo!=NULL){
         if(argc > 1){
-            conseguir_indices(leer_archivo, indices, &tope_indices);
+            conseguir_indices_m2(leer_archivo, indices, &tope_indices);
             if(strcmp(argv[1], METODO_UNO) == 0){   
                 //guardar_indices_m1(leer_archivo, escribir_archivo, indices, tope_indices);
             } else if (strcmp(argv[1], METODO_DOS) == 0){

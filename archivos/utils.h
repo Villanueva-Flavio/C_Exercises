@@ -6,11 +6,14 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdbool.h>
+#include <unistd.h>
 
+#define MAX_COLORES 50
 #define MAX_INDICES 100
 #define MAX_BUFFER 10000
 #define METODO_UNO "fscanf"
 #define METODO_DOS "fgets"
+#define MAX_LINES 100
 /*
 * Funcion que recibe un archivo de lectura y verifica que este disponible
 *
@@ -19,8 +22,8 @@
 bool isopen(FILE *leer_archivo){
     bool resultado;
     char buffer_in[MAX_BUFFER], *ptr;
-    if(*leer_archivo!=NULL){            // Existe el archivo?
-        fgets(buffer_in, MAX_BUFFER; leer_archivo); // Cargo un buffer
+    if(leer_archivo!=NULL){            // Existe el archivo?
+        fgets(buffer_in, MAX_BUFFER, leer_archivo); // Cargo un buffer
         resultado = (strcmp(buffer_in, NULL) != 0)? true:false; // Existen datos?
     } else {
         resultado = false;
