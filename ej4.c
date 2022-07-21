@@ -33,94 +33,67 @@
     Aclaración: El ejercicio fue realizado con fines prácticos de programación, No aceptamos quejas sobre química.
 */
 
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <stdbool.h>
+#include "./archivos/utils.h"
 
-#define MAX_INDICES 1000
-#define MAX_BUFFER 10000
-#define MAX_PRESION 100000
-#define MAX_COLOR 20
-
-// rojo;21
-
-int buscar_presion_minima(int presiones[MAX_INDICES], int tope){
-    int resultado = MAX_PRESION;
-    for(int i = 0; i < tope; i++){
-        resultado = (presiones[i] < resultado)? presiones[i]:resultado;
-    }
-    return resultado;
+/*
+* Procedimiento que consigue los indices de todos los globos a inflar y los guarda en un vector
+*
+* Process that get the index of all the balloons to fill and it saves into an array
+*/
+void conseguir_indices_m2(FILE *leer_archivo, int indices, int *tope_indices){
+    char buffer_in[MAX_BUFFER], *ptr;
+    int i = 0;
+    do{
+        fgets(buffer_in, MAX_BUFFER; leer_archivo);
+        ptr = strtok(buffer_in, ";");
+        ptr = strtok(buffer_in, "\0");
+        indices[i] = atoi(ptr);
+        *tope_indices ++;
+        i++;
+    } while (strcmp(buffer_in, NULL) != 0);
+    
+    
 }
 
-void guardar_globos(int destino[MAX_INDICES], int fuente[MAX_INDICES], int tope, int presion){
-    int i, k = 0;
-    for(i = 0; i < tope; i++){
-        if(fuente[i] == presion){
-            destino[k] = i;
-            k++;
-        }
-    }
-}
-
-void obtener_lista_de_globos(FILE *leer_archivo, int *tope, int presiones[MAX_INDICES]){
-    char *ptr, buffer[MAX_BUFFER];
-    int i, k = 0;
-    for(i = 0; i < MAX_INDICES; i++){
-        fgets(buffer, MAX_BUFFER, leer_archivo);
-        if(strcmp(buffer, "\0") == 0){
-            i = MAX_INDICES;
-            continue;
-        }
-        ptr = strtok(buffer, ";");
-        ptr = strtok(buffer, "\n");
-        presiones[k] = atoi(ptr);
-        k++;
-    }
-}
-
-void buscar_globos(FILE *leer_archivo, int indices[MAX_INDICES], int* tope){
-    int presiones[MAX_INDICES];
-    obtener_lista_de_globos(leer_archivo, tope, presiones);
-    guardar_globos(indices, presiones, *tope, buscar_presion_minima(presiones, *tope));
-}
-
-bool corresponde_indice(int i, int indices[MAX_INDICES], int tope){
-    bool resultado = false;
-    for(int i = 0; i < tope; i++){
-        if(indices[i] == i){
-            resultado = true;
-            i = tope;
-        }
-    }
-    return resultado;
-}
-
-void anotar_globos_a_inflar(FILE *escribir_archivo, FILE *leer_archivo, int indices[MAX_INDICES], int tope){
+/*
+* Procedimiento que escribe un archivo bajo el metodo 2
+*
+* Process that write a file under the method 2
+*/
+void guardar_indices_m2(FILE *leer_archivo, FILE *escribir_archivo, int indices[MAX_INDICES], int tope){
     int i, presion;
-    char *ptr, buffer[MAX_BUFFER], color[MAX_COLOR];
+    char buffer_in[MAX_BUFFER], *ptr, buffer_out[MAX_BUFFER];
     for(i = 0; i < tope; i++){
-        fgets(buffer, MAX_BUFFER, leer_archivo);
-        if(corresponde_indice(i, indices, tope)){
-            ptr = strtok(buffer, ";");
-            strcpy(ptr, color);
-            ptr = strtok(buffer, "\n");
+        fgets(buffer_in, MAX_BUFFER, leer_archivo);
+        if(buscar_valor(indices, tope, i)){
+            ptr = strtok(buffer_in, ";");
+            sprintf("%s", ptr);
+            ptr = strtok(buffer_in, "\n");
             presion = atoi(ptr);
+            fprintf(escribir_archivo, "%s;%i\n", buffer_out, presion);
         }
-        fprintf(escribir_archivo, "%s;%i\n", color, presion);
     }
 }
 
-int main(){
-    int indices[MAX_INDICES], tope = 0;
-    FILE *leer_archivo = fopen("archivos/presiones.csv", "r");
-    FILE *escribir_archivo = fopen("archivos/globos_a_inflar.csv", "w");
-    char file_check[MAX_BUFFER];
-    if(leer_archivo != NULL){
-        fgets(file_check, MAX_BUFFER, leer_archivo);
-        if(strcmp(file_check, "\0") != 0){
-            buscar_globos(leer_archivo, indices, &tope);
-            anotar_globos_a_inflar(escribir_archivo, leer_archivo, indices, tope);
+// Method 1: fscanf
+// Method 2: fgets
+// IN -> presiones.csv 
+// OUT -> globos_a_inflar.csv
+
+int main(int argc, char *argv[]){
+    FILE *leer_archivo = fopen("presiones.csv", "r");
+    FILE *escribir_archivo = fopen("globos_a_inflar.csv", "w");
+    int indices[MAX_INDICES], tope_indices;
+    if(isopen(leer_archivo)){
+        if(argc > 1){
+            conseguir_indices(leer_archivo, indices, &tope_indices);
+            if(strcmp(argv[1], METODO_UNO) == 0){   
+                //guardar_indices_m1(leer_archivo, escribir_archivo, indices, tope_indices);
+            } else if (strcmp(argv[1], METODO_DOS) == 0){
+                guardar_indices_m2(leer_archivo, escribir_archivo, indices, tope_indices);
+            }
+        } else {
+            printf("Elegir un argumento: %s o %s\n", METODO_UNO, METODO_DOS);
         }
         fclose(leer_archivo);
     }
