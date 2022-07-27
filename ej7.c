@@ -27,7 +27,7 @@
             partidos.csv
 
                 MKY 3 - 0 PLT
-                DNL 1- 2 MNY
+                DNL 1 - 2 MNY
                 PLT 1 - 0 MNY
                 MKY 2 - 2 DNL
                 MNY 1 - 1 MKY
