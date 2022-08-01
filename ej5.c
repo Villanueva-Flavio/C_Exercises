@@ -81,7 +81,6 @@ int main(){
 	FILE *leer_archivo = fopen("archivos/pista.csv", "r");
 	FILE *escribir_archivo = fopen("archivos/contrasenia.txt", "w");
 	char file_check[MAX_BUFFER];
-	
 	if(leer_archivo != NULL){
 		fgets(file_check, MAX_BUFFER, leer_archivo);
 		if(strcmp(file_check, "/0") != 0){
